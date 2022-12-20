@@ -232,12 +232,10 @@ include("contentmanager.php");
                         <br><br>
 						<?php } ?>
                         <h2>Alamat</h2>
-                        <p>
-                        Toko Buku Asik<br>
-                        Jl. Blahblah blah<br>
-                        Negara Indonesia</p>
+						<?php echo getoption("shopaddress") ?>
                         
-                        <p>© Copyright <?php echo date("Y"); ?> - Toko Buku Nur AlHuda - All rights reserved.</p>
+                        
+                        <p>© Copyright <?php echo date("Y"); ?> - <?php echo $title ?> - All rights reserved.</p>
                     </div>
                     
                     <div class="tablecell">

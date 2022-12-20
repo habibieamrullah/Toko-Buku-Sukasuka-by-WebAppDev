@@ -4,7 +4,7 @@ $adminusername = "admin";
 $adminpassword = "admin";
 $tableoptions = "weboptions";
 
-$dbname = "dbku";
+$dbname = "dbbaru";
 $dbuser = "root";
 $dbpass = "";
 

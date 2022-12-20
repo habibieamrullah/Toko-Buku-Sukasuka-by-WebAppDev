@@ -189,6 +189,7 @@ include("functions.php");
                         setoption("adminwhatsapp", escsql($_POST["adminwhatsapp"]));
                         setoption("isselling", escsql($_POST["isselling"]));
                         setoption("howtobuy", escsql($_POST["howtobuy"]));
+                        setoption("shopaddress", escsql($_POST["shopaddress"]));
                         
                         ?>
                         <div class="alert">Settings updated!</div>
@@ -243,6 +244,12 @@ include("functions.php");
 						<div>
 							<label>Teks Cara Berbelanja</label>
 							<textarea name="howtobuy"><?php echo getoption("howtobuy") ?></textarea>
+						</div>
+						
+						<br><br>
+						<div>
+							<label>Alamat Toko</label>
+							<textarea name="shopaddress"><?php echo getoption("shopaddress") ?></textarea>
 						</div>
                         
                         <div>
