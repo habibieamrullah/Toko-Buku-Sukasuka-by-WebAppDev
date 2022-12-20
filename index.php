@@ -14,13 +14,8 @@ include("contentmanager.php");
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         
-        <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
         
         <script type="text/javascript" src="jquery.min.js"></script>
         
@@ -231,16 +226,14 @@ include("contentmanager.php");
                     
                     <div class="tablecell">
                         
-                        <!--<h2>Aplikasi Toko Buku Nur Al-Huda</h2>-->
-                        <a href="https://play.google.com/store/apps/details?id=com.nuralhuda.tokobukunuralhuda"><img src="googleplay.png" style="max-width: 256px;"></a>
                         <h2>Metode Pembayaran</h2>
                         <img src="pembayaran.png" style="width: 100%; max-width: 256px;">
                         <br><br>
                         <h2>Alamat</h2>
                         <p>
-                        Toko Buku Nur Al-Huda<br>
-                        Jl. Buncit Raya Kav 35 Pejaten Barat<br>
-                        Jakarta Selatan</p>
+                        Toko Buku Asik<br>
+                        Jl. Blahblah blah<br>
+                        Negara Indonesia</p>
                         
                         <p>© Copyright <?php echo date("Y"); ?> - Toko Buku Nur AlHuda - All rights reserved.</p>
                     </div>

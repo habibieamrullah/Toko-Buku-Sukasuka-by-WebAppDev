@@ -84,17 +84,19 @@ function showcards($sql){
     global $connection;
     $result = mysqli_query($connection, $sql);
     $content = "";
-    while($row = mysqli_fetch_assoc($result)){
-        $content .= '<a href="?product=' .$row["id"]. '"><div class="productcard">
-            <img class="productthumb" src="images/' . $row["thumbnail"] .'">
-            <div>' .  $row["title"] . '</div>
-            <div>
-                <span style="font-size: 12px; text-decoration: line-through;">Rp. ' . number_format($row["regularprice"]) . '</span><span style="background-color: ' . getoption("primarycolor") . '; color: white; padding: 2px; margin: 2px; border-radius: 3px;">' . $row["discount"] . '%</span>
-            </div>
-            <div style="color: ' . getoption("primarycolor") . '; font-weight: bold;">
-                Rp. ' . number_format($row["currentprice"]) .
-            '</div>
-        </div></a>';
-    }
+	if(mysqli_num_rows($result) > 0){
+		while($row = mysqli_fetch_assoc($result)){
+			$content .= '<a href="?product=' .$row["id"]. '"><div class="productcard">
+				<img class="productthumb" src="images/' . $row["thumbnail"] .'">
+				<div>' .  $row["title"] . '</div>
+				<div>
+					<span style="font-size: 12px; text-decoration: line-through;">Rp. ' . number_format($row["regularprice"]) . '</span><span style="background-color: ' . getoption("primarycolor") . '; color: white; padding: 2px; margin: 2px; border-radius: 3px;">' . $row["discount"] . '%</span>
+				</div>
+				<div style="color: ' . getoption("primarycolor") . '; font-weight: bold;">
+					Rp. ' . number_format($row["currentprice"]) .
+				'</div>
+			</div></a>';
+		}
+	}
     return $content;
 }
