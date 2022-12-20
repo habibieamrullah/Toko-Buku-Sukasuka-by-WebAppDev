@@ -187,6 +187,8 @@ include("functions.php");
                         setoption("metadescription", escsql($_POST["metadescription"]));
                         setoption("primarycolor", escsql($_POST["primarycolor"]));
                         setoption("adminwhatsapp", escsql($_POST["adminwhatsapp"]));
+                        setoption("isselling", escsql($_POST["isselling"]));
+                        setoption("howtobuy", escsql($_POST["howtobuy"]));
                         
                         ?>
                         <div class="alert">Settings updated!</div>
@@ -217,6 +219,31 @@ include("functions.php");
                             <input name="adminwhatsapp" value="<?php echo getoption("adminwhatsapp") ?>">
                             
                         </div>
+						
+						<div>
+                            <label>Apakah Berjualan Buku?</label>
+							<select name="isselling">
+								<?php
+								if(getoption("isselling") == 1){
+									?>
+									<option value=1 selected>Ya</option>
+									<option value=0>Tidak</option>
+									<?Php
+								}else{
+									?>
+									<option value=1>Ya</option>
+									<option value=0 selected>Tidak</option>
+									<?Php
+								}
+								?>
+							</select>
+                            
+                        </div>
+						
+						<div>
+							<label>Teks Cara Berbelanja</label>
+							<textarea name="howtobuy"><?php echo getoption("howtobuy") ?></textarea>
+						</div>
                         
                         <div>
                             <input type="submit" value="Perbarui">

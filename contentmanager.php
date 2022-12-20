@@ -52,12 +52,21 @@ else if(isset($_GET["product"])){
     if($result){
         $row = mysqli_fetch_assoc($result);
         $title = $row["title"];
+		$thumbnail = "";
+		if($row["thumbnail"] != ""){
+			$thumbnail = '<div class="tablecell"><img src="images/' .$row["thumbnail"]. '" style="width: 100%;"></div>';
+		}
+		
+		$purchasebuttons = "";
+		if(getoption("isselling") == 1){
+			$purchasebuttons = '<div onclick="waorder()" class="waorder"><i class="fa fa-whatsapp"></i> Pesan Lewat WhatsApp</div>
+                            <div onclick="addToCart(' .$row["id"]. ', \'' .$row["title"]. '\', ' .$row["currentprice"]. ', \'' .$row["thumbnail"]. '\')" class="waorder"><i class="fa fa-shopping-cart"></i> Tambahkan ke Keranjang</div>';
+		}
+		
         $content = '
             <div>
                 <div class="maxw">
-                    <div style="display: table; width: 100%; box-sizing: border-box;">
-                        <div class="tablecell"><img src="images/' .$row["thumbnail"]. '" style="width: 100%;"></div>
-                        <div class="tablecell">
+                    <div style="display: table; width: 100%; box-sizing: border-box;">' . $thumbnail . '<div class="tablecell">
                             <span style="color: #129505">Ketersediaan: '.$row["stocktext"].' | Kategori: ' .$row["category"]. '</span>
                             <h1>'.$row["title"].'</h1>
                             <h3>Deskripsi Buku:</h3>
@@ -67,10 +76,7 @@ else if(isset($_GET["product"])){
                             </div>
                             <div style="color: ' . getoption("primarycolor") . '; font-weight: bold;">
                                 <h3>Rp. ' . number_format($row["currentprice"]) .'<h3>
-                            </div>
-                            <div onclick="waorder()" class="waorder"><i class="fa fa-whatsapp"></i> Pesan Lewat WhatsApp</div>
-                            <div onclick="addToCart(' .$row["id"]. ', \'' .$row["title"]. '\', ' .$row["currentprice"]. ', \'' .$row["thumbnail"]. '\')" class="waorder"><i class="fa fa-shopping-cart"></i> Tambahkan ke Keranjang</div>
-                        </div>
+                            </div>' . $purchasebuttons . '</div>
                     </div>
                 </div>
             </div>
@@ -88,6 +94,16 @@ else if(isset($_GET["cart"])){
         <div class="maxw">
             <div align="center"><h2><i class="fa fa-shopping-cart"></i> Keranjang Belanja</h2></div>
             <div id="shoppingcart"></div>
+        </div>
+    ';
+}
+
+else if(isset($_GET["howtopay"])){
+	
+	$content = '
+        <div class="maxw">
+            <div align="center"><h2><i class="fa fa-credit-card"></i> Cara Berbelanja</h2></div>
+            <div>' .getoption("howtobuy"). '</div>
         </div>
     ';
 }

@@ -86,9 +86,11 @@ function showcards($sql){
     $content = "";
 	if(mysqli_num_rows($result) > 0){
 		while($row = mysqli_fetch_assoc($result)){
-			$content .= '<a href="?product=' .$row["id"]. '"><div class="productcard">
-				<img class="productthumb" src="images/' . $row["thumbnail"] .'">
-				<div>' .  $row["title"] . '</div>
+			$thumbnail = "";
+			if($row["thumbnail"] != ""){
+				$thumbnail = '<img class="productthumb" src="images/' . $row["thumbnail"] .'">';
+			}
+			$content .= '<a href="?product=' .$row["id"]. '"><div class="productcard">' . $thumbnail . '<div>' .  $row["title"] . '</div>
 				<div>
 					<span style="font-size: 12px; text-decoration: line-through;">Rp. ' . number_format($row["regularprice"]) . '</span><span style="background-color: ' . getoption("primarycolor") . '; color: white; padding: 2px; margin: 2px; border-radius: 3px;">' . $row["discount"] . '%</span>
 				</div>

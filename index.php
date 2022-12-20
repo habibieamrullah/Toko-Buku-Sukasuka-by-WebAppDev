@@ -198,12 +198,13 @@ include("contentmanager.php");
             <div class="maxw">
                 <div style="display: table; width: 100%;">
                     <div style="display: table-cell; vertical-align: middle;">
-                        <div class="topribbonitem" id="howtopaybutton"><i class="fa fa-credit-card"></i> <a href="?pageid=1">Cara Pembayaran</a> | <i class="fa fa-phone"></i> <a href="tel:+<?php echo getoption("adminwhatsapp") ?>"><?php echo getoption("adminwhatsapp") ?></a></div>
+                        <div class="topribbonitem" id="howtopaybutton"><?php if(getoption("isselling") == 1){ ?><i class="fa fa-credit-card"></i> <a href="?howtopay">Cara Berbelanja</a> | <?php } ?><i class="fa fa-phone"></i> <a href="tel:+<?php echo getoption("adminwhatsapp") ?>"><?php echo getoption("adminwhatsapp") ?></a></div>
                         <div class="topribbonitem" id="searchinputholder" style="display: none; padding: 0px;"><input id="searchinput" placeholder="Ketik judul buku..." onkeyup="booksearch()"></div>
                     </div>
                     <div style="display: table-cell; text-align: right; vertical-align: middle; width: 20%;">
                         <div style="display: inline-block;" onclick="toggleSearchInput()"><i class="fa fa-search" style="font-size: 1em; cursor: pointer;"></i></div>
-                        <div style="display: inline-block;" onclick="goToCart()"><i class="fa fa-shopping-cart" style="font-size: 1em; cursor: pointer;"></i></div>
+						<?php if(getoption("isselling") == 1){ ?>
+                        <div style="display: inline-block;" onclick="goToCart()"><i class="fa fa-shopping-cart" style="font-size: 1em; cursor: pointer;"></i> <?php } ?></div>
                     </div>
                 </div>
             </div>
@@ -225,10 +226,11 @@ include("contentmanager.php");
                 <div style="display: table; width: 100%; box-sizing: border-box;">
                     
                     <div class="tablecell">
-                        
+                        <?php if(getoption("isselling") == 1){ ?>
                         <h2>Metode Pembayaran</h2>
                         <img src="pembayaran.png" style="width: 100%; max-width: 256px;">
                         <br><br>
+						<?php } ?>
                         <h2>Alamat</h2>
                         <p>
                         Toko Buku Asik<br>
@@ -261,9 +263,11 @@ include("contentmanager.php");
                                     ?>
                                     
                                     <div style="display: inline-block; margin-right: 3px; vertical-align: top;">
+										<?php if($row["thumbnail"] != ""){ ?>
                                         <a href="?product=<?php echo $row["id"] ?>" class="anou">
                                             <img src="images/<?php echo $row["thumbnail"] ?>" style="width: 64px;">
                                         </a>
+										<?php } ?>
                                     </div>
                                     
                                     <?php
