@@ -121,7 +121,7 @@ include("functions.php");
     </head>
     <body>
         <?php
-        if(isset($_SESSION["tokobukunuralhuda"])){
+        if(isset($_SESSION["adminsession"])){
             
             ?>
             <div class="admincontainer">
@@ -628,7 +628,7 @@ include("functions.php");
                         ?>
                         <p>Login ok. Klik <a href="admin.php">di sini</a> untuk menuju Dasbor.</p>
                         <?php
-                        $_SESSION["tokobukunuralhuda"] = $adminpassword;
+                        $_SESSION["adminsession"] = $adminpassword;
                     }else{
                         echo "Login error!";
                     }
